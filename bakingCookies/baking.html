@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        window.onload = init;
+        var cookies = {
+            instructions: "Preheat oven to 350...",
+            bake: function(time) {
+                    console.log("Baking the cookies.");
+                    setTimeout(done, time);
+                }
+        };
+
+        function init() {
+            var button = document.getElementById("bake");
+            button.onclick = handleButton;
+        }
+
+        function handleButton() {
+            console.log("Time to bake the cookies.");
+            cookies.bake(2500);
+        }
+
+        function done() {
+            alert("Cookies are ready, take them out to cool.");
+            console.log("Cooling the cookies.");
+            var cool = function() {
+                alert("Cookies are cool, time to eat!");
+            };
+            setTimeout(cool, 1000);
+        }
+
+        //Taip turi atrodyti su anonymous funkcija (apacioje) 
+
+        window.onload = function() {
+            var button = document.getElementById("bake");
+            button.onclick = function() {
+                console.log("Time to bake the cookies.");
+                cookies.bake(2500);
+            }
+        }
+
+        var cookies = {
+            instructions: "Preheat oven to 350...",
+            bake: function(time) {
+                    console.log("Baking the cookies.");
+                    setTimeout(done, time);
+                }
+        };
+
+        function done() {
+            alert("Cookies are ready, take them out to cool.");
+            console.log("Cooling the cookies.");
+            setTimeout(function() {
+                alert("Cookies are cool, time to eat!");
+            }, 1000);
+        }
+
+        administer(patient, function(dosage) {
+            if (dosage > 0) {
+                inject(dosage);
+            }
+        }, time);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
